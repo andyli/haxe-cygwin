@@ -27,10 +27,6 @@ PATCH_URI="ocamllibs_pcre.patch"
 # https://github.com/HaxeFoundation/neko/issues/130
 RESTRICT="strip"
 
-DIFF_EXCLUDES="
-	*.n
-"
-
 MAKEOPTS="-f Makefile.win"
 
 src_compile() {
