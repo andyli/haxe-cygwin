@@ -1,0 +1,11 @@
+From: Andy Li <andy@onthewings.net>
+Subject: define LIBS in pcre Makefile such that it wouldn't pick up parent's LIBS
+https://github.com/HaxeFoundation/haxe/commit/d17630bf6a233e63afb7ccea18a32b384a8bb8f6
+--- origsrc/haxe/libs/pcre/Makefile	2017-05-05 13:05:07.000000000 +0800
++++ src/haxe/libs/pcre/Makefile	2017-05-05 14:16:27.564569300 +0800
+@@ -1,4 +1,5 @@
+ ALL_CFLAGS = $(CFLAGS) -I pcre
++LIBS =
+ OCAMLOPT=ocamlopt
+ OCAMLC=ocamlc
+ SRC = pcre.ml pcre_stubs.c

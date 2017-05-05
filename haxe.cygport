@@ -1,0 +1,57 @@
+GIT_URI="https://github.com/HaxeFoundation/haxe.git"
+GIT_TAG="${VERSION}"
+inherit git
+
+NAME="haxe"
+VERSION=3.4.2
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="multi-target universal programming language"
+DESCRIPTION="An open source toolkit based on a modern, high level,
+strictly typed programming language, a cross-compiler, a complete
+cross-platform standard library and ways to access each platform's
+native capabilities."
+HOMEPAGE="https://haxe.org/"
+DEPEND="
+	ocaml
+	ocaml-camlp4
+	flexdll
+	neko
+	libpcre-devel
+	zlib-devel
+"
+PATCH_URI="ocamllibs_pcre.patch"
+
+# haxelib cannot be stripped since
+# it is a special binary appended with neko bytecode
+# https://github.com/HaxeFoundation/neko/issues/130
+RESTRICT="strip"
+
+DIFF_EXCLUDES="
+	*.n
+"
+
+MAKEOPTS="-f Makefile.win"
+
+src_compile() {
+	lndirs
+	cd ${B}
+	cygmake
+	chmod a+x ${B}/haxe.exe ${B}/haxelib.exe
+}
+
+src_test() {
+	${B}/haxe.exe -version
+	${B}/haxelib.exe version
+}
+
+src_install() {
+	cd ${B}
+	install -d ${D}/usr/bin/
+	install haxe.exe ${D}/usr/bin/
+	install haxelib.exe ${D}/usr/bin/
+	install -d ${D}/usr/share/haxe/
+	cp -r std ${D}/usr/share/haxe/
+	install -d ${D}/usr/share/doc/haxe/
+	install README.md extra/CHANGES.txt extra/LICENSE.txt ${D}/usr/share/doc/haxe/
+}
