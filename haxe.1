@@ -1,0 +1,91 @@
+.TH HAXE 1 "May 12, 2017" ""
+.SH NAME
+haxe \- compile Haxe programs to SWF, Neko, JavaScript, PHP, C++, Java, C#, Python, Lua, or HashLink.
+.SH SYNOPSIS
+\fBhaxe\fR \fB-main\fR \fIclass\fR [\fB-swf9\fR|\fB-swf\fR|\fB-js\fR|\fB-neko\fR|\fB-php\fR|\fB-cpp\fR|\fB-as3\fR|\fB-cs\fR|\fB-java\fR|\fB-python\fR|\fB-hl\fR|\fB-lua\fR] \fIoutput\fR [options...]
+.SH DESCRIPTION
+.B haxe
+is a command-line compiler which compiles Haxe programs into Flash SWF,
+JavaScript, ActionScript, PHP, C++, Java, C#, Python, Lua, Neko bytecode, or HashLink bytecode.
+.PP
+Haxe programs are syntactically similar to JavaScript, but have a full-featured static type
+system with generics, compile-time macros, generalized algebraic datatypes, and more.
+.SH OPTIONS
+.TP
+.BI "\-cp " path
+Add a directory to find source files.
+.TP
+.BI "\-js " file
+Compile code to JavaScript file.
+.TP
+.BI "\-lua " file
+Compile code to Lua file.
+.TP
+.BI "\-swf " file
+Compile code to Flash SWF file.
+.TP
+.BI "\-as3 " directory
+Generate AS3 code into target directory.
+.TP
+.BI "\-neko " file
+Compile code to Neko Binary.
+.TP
+.BI "\-php " file
+Generate PHP code into target directory.
+.TP
+.BI "\-cpp " file
+Generate C++ code into target directory.
+.TP
+.BI "\-cppia " file
+Generate code to Cppia file.
+.TP
+.BI "\-cs " directory
+Generate C# code into target directory.
+.TP
+.BI "\-java " directory
+Generate Java code into target directory.
+.TP
+.BI "\-python " file
+Generate Python code as target file.
+.TP
+.BI "\-hl " file
+Compile HL code as target file.
+.TP
+.BI "\-xml " file
+Generate XML types description.
+.TP
+.BI "\-main " class
+Select startup class.
+.TP
+.BI "\-lib " library[:version]
+Use a haxelib library.
+.TP
+.BI "\-D " var[=value]
+Define a conditional compilation flag.
+.TP
+.B "\-v"
+Turn on verbose mode.
+.TP
+.B "\-debug"
+Add debug information to the compiled code.
+.TP
+.B "\-help"
+Show extended help information.
+.TP
+.B "\-\-help"
+Show extended help information.
+.TP
+.B "\-\-help\-defines"
+Print help for all compiler specific defines.
+.TP
+.B "\-\-help\-metas"
+Print help for all compiler metadatas.
+.TP
+.B "<dot-path>"
+Compile the module specified by dot-path.
+.SH AUTHOR
+Haxe is currently maintained by the Haxe Foundation.
+It was originally written by Nicolas Cannasse for Motion-Twin.
+.SH SEE ALSO
+.BR "haxelib" (1).
+.IR "https://haxe.org/" .

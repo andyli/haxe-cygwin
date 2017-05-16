@@ -21,6 +21,8 @@ DEPEND="
 	zlib-devel
 "
 PATCH_URI="ocamllibs_pcre.patch"
+SRC_URI+="haxe.1 haxelib.1"
+DOCS="haxe.1 haxelib.1"
 
 # haxelib cannot be stripped since
 # it is a special binary appended with neko bytecode
