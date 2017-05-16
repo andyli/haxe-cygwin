@@ -22,7 +22,6 @@ DEPEND="
 "
 PATCH_URI="ocamllibs_pcre.patch"
 SRC_URI+="haxe.1 haxelib.1"
-DOCS="haxe.1 haxelib.1"
 
 # haxelib cannot be stripped since
 # it is a special binary appended with neko bytecode
@@ -45,11 +44,9 @@ src_test() {
 
 src_install() {
 	cd ${B}
-	install -d ${D}/usr/bin/
-	install haxe.exe ${D}/usr/bin/
-	install haxelib.exe ${D}/usr/bin/
-	install -d ${D}/usr/share/haxe/
+	dobin haxe.exe haxelib.exe
+	dodir /usr/share/haxe
 	cp -r std ${D}/usr/share/haxe/
-	install -d ${D}/usr/share/doc/haxe/
-	install README.md extra/CHANGES.txt extra/LICENSE.txt ${D}/usr/share/doc/haxe/
+	dodoc README.md extra/CHANGES.txt extra/LICENSE.txt
+	doman ${S}/haxe*.1
 }
