@@ -28,7 +28,7 @@ SRC_URI+="haxe.1 haxelib.1"
 # https://github.com/HaxeFoundation/neko/issues/130
 RESTRICT="strip"
 
-MAKEOPTS="-f Makefile.win"
+MAKEOPTS+="-j1 -f Makefile.win"
 
 src_compile() {
 	lndirs
