@@ -3,7 +3,7 @@ GIT_TAG="${VERSION}"
 inherit git
 
 NAME="haxe"
-VERSION=3.4.5
+VERSION=3.4.6
 RELEASE=1
 CATEGORY="Devel"
 SUMMARY="multi-target universal programming language"
